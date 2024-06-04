@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Abstracciones.DA
+namespace Abstracciones.IBW
 {
-    public interface IEquiposDA
+    public interface EquipoIBW
     {
         //Listar los Equiposes
         public Task<IEnumerable<Equipos>> ListarEquipos();
