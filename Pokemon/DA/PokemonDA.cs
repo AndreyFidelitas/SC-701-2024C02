@@ -5,17 +5,33 @@ using System.Text;
 using System.Threading.Tasks;
 using Abstracciones.DA;
 using Abstracciones.Modelos;
+using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Tokens;
+using Dapper;
 
 namespace DA
 {
     public class PokemonDA : IPokemonDA
     {
-        public IEnumerable<Pokemon> ListarPokemon()
+
+        private IRepositorioDapper _r;
+        private SqlConnection _conn;
+
+        public PokemonDA(IRepositorioDapper r)
         {
-            throw new NotImplementedException();
+            _r = r;
+            _conn = r.ObtenerRepositorio();
         }
 
-        public Pokemon ListarPokemon(Guid Pokemon)
+        public async Task<IEnumerable<Equipos>> Obtener()
+        {
+            string value = @"lista";
+            var query = await _conn.QueryAsync<Abstracciones.Entidades.Equipos>(value);
+
+            return query;
+        }
+
+        public Task<IEnumerable<Equipos>> Obtener(Guid id)
         {
             throw new NotImplementedException();
         }

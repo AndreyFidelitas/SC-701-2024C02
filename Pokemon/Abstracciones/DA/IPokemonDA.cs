@@ -10,9 +10,8 @@ namespace Abstracciones.DA
     public interface IPokemonDA
     {
         //Listar los Pokemones
-        public IEnumerable<Pokemon> ListarPokemon();
-        //Obtener el Pokemon por medio del ID.
-        public Pokemon ListarPokemon(Guid Pokemon);
-        
+        public Task<IEnumerable<Equipos>> Obtener();
+        public Task<IEnumerable<Equipos>> Obtener(Guid id);
+
     }
 }
